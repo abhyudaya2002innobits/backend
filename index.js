@@ -3,7 +3,7 @@ const express=require('express');
 // const auth=require('./server')
 const app=express();
 const connect=require('./config/server')
-const user=require('./models/user')
+// const user=require('./models/user')
 const routes=require('./routes/route')
 const {sequelize,dbconnect}=require('./config/server')
 

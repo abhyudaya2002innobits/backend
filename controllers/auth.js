@@ -5,10 +5,10 @@ const user_create=require('../migrations/20231108101240-users')
 exports.signup=async (req,res)=>{
     try{
         
-        const {name,email}=req.body()
+        
          await user_create.create({
-            
-            
+            name:name,
+            email:email
             
         })
         res.send("account created...")
