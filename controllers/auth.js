@@ -1,22 +1,29 @@
-const user_create=require('../migrations/20231108101240-users')
+
+const User=require('../models/user')
+const Sequelize = require('sequelize');
+const express=require('express')
 
 
 // create entry
 exports.signup=async (req,res)=>{
     try{
         
-        
-         await user_create.create({
-            name:name,
-            email:email
+        // const {user_name,email}=req.body
+         await User.create({
+            user_name:"abhy",
+
+            email:"12@"
+            
+           
             
         })
+        
         res.send("account created...")
         
         console.log("successfully added")
 
     }catch(error){
-        console.log(`error occued ${error}`)
+        console.log(`error occued ${error}`,)
          
         
     }
@@ -30,7 +37,7 @@ exports.home=(req,res)=>{
 exports.update=async (req,res)=>{
     try{
         res.send("Updated...")
-        await user_create.update({email:"dhoni@gmail.com"},{
+        await User.update({email:"dhoni@gmail.com"},{
             where:{
                 name:"dev",
             }
@@ -45,7 +52,7 @@ exports.update=async (req,res)=>{
 
 exports.del=async(req,res)=>{
     try{
-        await user_create.destroy({
+        await User.destroy({
             where:{
                 name:"dev"
             }
@@ -54,6 +61,6 @@ exports.del=async(req,res)=>{
         console.log("user deleted")
     }catch(error){
         res.send("user can not be deleted")
-        console.log(`error occured ${error}`)
+        console.log(`error occured `)
     }
 }

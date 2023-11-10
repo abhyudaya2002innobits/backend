@@ -1,5 +1,6 @@
 const {Sequelize,DataTypes}= require("sequelize");
-const {DB_NAME,DB_USERNAME, DB_PASSWORD}=require('./config')
+const {DB_NAME,DB_USERNAME, DB_PASSWORD}=require('./config');
+const { resolve } = require("path");
 
 // const sequelize = new Sequelize(
 //  'user',
@@ -26,6 +27,13 @@ const dbconnect=sequelize.authenticate().then(() => {
    console.error('Unable to connect to the database: ', error);
 });
 
-
+// const dbconnect=async (rej,res)=>{
+//    try{
+//       await sequelize.authenticate();
+//       console.log("connectecd")
+//    }catch(error){
+//       console.log(`not connected ${error}`)
+//    }
+// }
 
 module.exports={dbconnect,sequelize}
