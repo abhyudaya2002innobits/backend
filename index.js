@@ -13,10 +13,11 @@ const migrations=require('./migrations/20231110071906-user')
 dbconnect
 
 sequelize.sync() 
+sequelize.sync({force:true})
 
 app.use('/api/v1',routes)
 app.use(express.json())
-PORT=3000
+PORT=5000
 
 app.listen(PORT,()=>{
     console.log(`server  started at ${PORT}`)

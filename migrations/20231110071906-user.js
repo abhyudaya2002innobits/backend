@@ -12,7 +12,7 @@ module.exports= {
     try{
       await queryInterface.createTable('user',{id:Sequelize.INTEGER},
       {
-        user_name:Sequelize.STRING,
+        user_name:Sequelize.DataTypes.STRING,
       },
       {
         email:Sequelize.DataTypes.STRING,

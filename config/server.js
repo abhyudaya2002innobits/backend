@@ -1,5 +1,5 @@
 const {Sequelize,DataTypes}= require("sequelize");
-const {DB_NAME,DB_USERNAME, DB_PASSWORD}=require('./config');
+const {DB_NAME,DB_USERNAME, DB_PASSWORD}=require('./connection');
 const { resolve } = require("path");
 
 // const sequelize = new Sequelize(
@@ -10,6 +10,13 @@ const { resolve } = require("path");
 //     host: 'localhost',
 //     dialect: 'mysql'
 //   })
+
+// const DB_NAME='user'
+// const DB_USERNAME='root'
+// const DB_PASSWORD='rgbXYZ@9182'
+
+module.exports={DB_NAME,DB_USERNAME,DB_PASSWORD}
+
 const sequelize=new Sequelize(DB_NAME,
    DB_USERNAME,
    DB_PASSWORD,
