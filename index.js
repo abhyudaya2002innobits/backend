@@ -12,12 +12,17 @@ const migrations=require('./migrations/20231110071906-user')
 // dataabse connection
 dbconnect
 
-sequelize.sync() 
-sequelize.sync({force:true})
-
+// sequelize.sync() /
+// sequelize.sync({force:true})
+sequelize.sync({alter:true}).then(() => {
+    console.log('Tables created successfully!');
+  }).catch((error) => {
+    console.error('Unable to create tables: ', error);
+  });
+  
 app.use('/api/v1',routes)
 app.use(express.json())
-PORT=5000
+PORT=4000
 
 app.listen(PORT,()=>{
     console.log(`server  started at ${PORT}`)

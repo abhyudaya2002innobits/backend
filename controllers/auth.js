@@ -1,33 +1,15 @@
+const { Users, user_name, email } = require('../models/users');
 
-// const User=require('../models/user')
-
-const {User } = require('../models/user');
-
-
-// create entry
-exports.signup=async (req,res)=>{
-    try{
-        
-        // const {user_name,email}=req.body
-         await User.create({
-            user_name:"abhy",
-
-            email:"12@"
-            
-           
-            
-        })
-        
-        res.send("account created...")
-        
-        console.log("successfully added")
-
-    }catch(error){
-        console.log(`error occued ${error}`,)
-         
-        
+exports.signup = async (req, res) => {
+    try {
+        const result = await Users.create({
+            firstname: "aaar",
+            lastname: "@234"
+        });
+        console.log("User created:", result);
+        res.json(result);
+    } catch (error) {
+        console.error("Error creating user:", error);
+        res.status(500).send("Internal Server Error");
     }
-}
-exports.home=(req,res)=>{
-    res.send("Welcome")
 }
